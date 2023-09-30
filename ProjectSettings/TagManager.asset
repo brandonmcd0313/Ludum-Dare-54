@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Truck
+  - Bin
+  - Trash
+  - Stink
   layers:
   - Default
   - TransparentFX
@@ -49,4 +53,7 @@ TagManager:
     locked: 0
   - name: Trash Items
     uniqueID: 234634423
+    locked: 0
+  - name: Stink Sprites
+    uniqueID: 2771275105
     locked: 0

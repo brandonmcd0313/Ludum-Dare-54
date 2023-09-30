@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788952612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: -0.34, z: 0}
+  m_LocalPosition: {x: 11.25, y: -1.71, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 1371686003}
   - component: {fileID: 1371686007}
   m_Layer: 0
-  m_Name: Garbage Truck BackView
+  m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,10 +331,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.007, y: -0.016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.57866114, y: 0.50126874}
     oldSize: {x: 12.8, y: 12.8}
     newSize: {x: 12.8, y: 12.8}
     adaptiveTilingThreshold: 0.5
@@ -433,7 +433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371686002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.83, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,9 +471,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1699674605}
   - component: {fileID: 1699674604}
+  - component: {fileID: 1699674606}
   m_Layer: 0
   m_Name: Uptop Bin View
-  m_TagString: Untagged
+  m_TagString: Bin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,8 +517,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -569028629
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7f36ba2700baaf4e9733e0e1c05c83d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -538,13 +539,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699674603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.61, y: 1.47, z: 0}
+  m_LocalPosition: {x: 11.39, y: 1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699674606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699674603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0792204caf3764b8855c608272790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightPosition: {x: 0, y: 0, z: 0}
+  _leftPosition: {x: 0, y: 0, z: 0}
+  _rightRotation: {x: 0, y: 0, z: 0, w: 0}
+  _leftRotation: {x: 0, y: 0, z: 0, w: 0}
+  _stinkObjects:
+  - {fileID: 8886772291569055417, guid: f6a17606d5e37844fa6e5f8bc8087d83, type: 3}
+  - {fileID: 7927877601169756893, guid: 50cc054cfd3fd4a4ab10b3f0ed51d5b7, type: 3}
+  - {fileID: 7176363462488429309, guid: 55f4f3ccb12a4ad48b4506d5c44bf431, type: 3}
+  - {fileID: 7564555348626245700, guid: 2978c8624b271b04d82d271bd05e0eed, type: 3}
+  - {fileID: 2823215541824472377, guid: b3d4c99b9c14cb648b5a841fcb613723, type: 3}
+  _trashObjects: []
 --- !u!1 &1894517455
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +580,7 @@ GameObject:
   - component: {fileID: 1894517458}
   - component: {fileID: 1894517457}
   - component: {fileID: 1894517456}
+  - component: {fileID: 1894517459}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -629,3 +654,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894517459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894517455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d678e2a538e28724db8f97fed5a80aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _leftBound: -8
+  _rightBound: 8
