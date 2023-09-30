@@ -4,14 +4,15 @@ using UnityEngine;
 
 public interface ILockable
 {
-    bool IsLocked { get; }
-    Vector3 Position { get; }
+    public bool IsLocked { get; }
+    public Vector3 Position { get; }
 
-    Vector2[] GetVertices();
-    void OnPickup();
-    void OnLock();
+    public Collider2D Collider { get; }
+    public void OnLock();
 
-    void OnLockAttempt();
+   public void OnLockAttempt();
 
-    
+    public void OnLockFailedAttempt();
+
+
 }

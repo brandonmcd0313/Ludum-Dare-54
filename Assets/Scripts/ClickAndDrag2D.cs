@@ -66,15 +66,10 @@ public class ClickAndDrag2D : MonoBehaviour
             _offset.z = 0;
             _isFollowingMouse = true;
             if (_pickupSound && GetComponent<AudioSource>())
-                GetComponent<AudioSource>().PlayOneShot(_pickupSound);
+            { GetComponent<AudioSource>().PlayOneShot(_pickupSound); }
         }
 
-        //add a selected effect here
-        //if this object is a trash object, tell it that it has been picked up
-        if (GetComponent<TrashBehaviour>())
-        {
-            GetComponent<TrashBehaviour>().OnPickup(); 
-        }
+       
     }
 
     private void OnMouseUp()
@@ -82,7 +77,7 @@ public class ClickAndDrag2D : MonoBehaviour
         //stop following mouse
         _isFollowingMouse = false;
         if (_dropSound & GetComponent<AudioSource>())
-            GetComponent<AudioSource>().PlayOneShot(_dropSound);
+        { GetComponent<AudioSource>().PlayOneShot(_dropSound); }
 
         //if offject is off-screen, snap to on-screen position
         Vector3 objecctPositionNormalized = Camera.main.ScreenToViewportPoint(transform.position);

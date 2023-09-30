@@ -4,11 +4,13 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 [RequireComponent(typeof(ClickAndDrag2D))]
+[RequireComponent(typeof(Collider2D))]
 public class TrashBehaviour : MonoBehaviour, ILockable
 {
     bool isInBin;
     bool isLocked;
-    Vector3 ILockable.Position
+
+    public Vector3 Position
     {
         get
         {
@@ -16,7 +18,7 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         }
     }
 
-    bool ILockable.IsLocked
+    public bool IsLocked
     {
         get
         {
@@ -24,35 +26,73 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         }
     }
 
-
-    //assign self a random sprite
-
-     public void OnPickup()
+    public void OnPickup()
     {
-        //remove the closest stink effect
+        if (isInBin)
+        {
+            //destroy the closet gameobject with tag "Stink"
+           
+            Destroy(FindClosestObjectWithTag("Stink"));
+
+        }
+        isInBin = false;
     }
 
-    void ILockable.OnLockAttempt()
+    public void OnLockAttempt()
     {
         //see if coverring any objects
         print("attempted to lock");
+
+        OnLock();
+
     }
 
-    void ILockable.OnLock()
+    public void OnLockFailedAttempt()
     {
-        
+        isLocked = false;
+        //make sprite white
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
+    public void OnLock()
+    {
+        isLocked = true;
+        //make sprite red
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 
-    Vector2[] ILockable.GetVertices()
+    public Collider2D Collider
     {
-        //return the vertices of this objects collider using the bounds
-        Bounds objectBounds = GetComponent<Collider2D>().bounds;
-        Vector2[] vertices = new Vector2[4];
-        vertices[0] = new Vector2(objectBounds.max.x, objectBounds.max.y);
-        vertices[0] = new Vector2(objectBounds.max.x, objectBounds.min.y);
-        vertices[0] = new Vector2(objectBounds.min.x, objectBounds.min.y);
-        vertices[0] = new Vector2(objectBounds.min.x, objectBounds.max.y);
-        return vertices;
+        get
+        {
+            TrashBehaviour trashBehaviour = GetComponent<TrashBehaviour>();
+            if (trashBehaviour != null)
+            {
+                return GetComponent<Collider2D>();
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+    
+
+    GameObject FindClosestObjectWithTag(string tag)
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+        //find the closest one
+        GameObject closestObject = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (GameObject obj in objects)
+        {
+            float distance = Vector3.Distance(transform.position, obj.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestObject = obj;
+            }
+        }
+        return closestObject;
     }
 }
 

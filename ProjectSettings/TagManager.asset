@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Truck
+    uniqueID: 4122883145
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bins
+    uniqueID: 3725938667
+    locked: 0
+  - name: Trash Items
+    uniqueID: 234634423
     locked: 0
