@@ -64,15 +64,17 @@ public class TrashBehaviour : MonoBehaviour, ILockable
     {
         get
         {
-            TrashBehaviour trashBehaviour = GetComponent<TrashBehaviour>();
-            if (trashBehaviour != null)
+            // Check if the component exists before returning it
+            if (TryGetComponent(out Collider2D collider))
             {
-                return GetComponent<Collider2D>();
+                return collider;
             }
             else
             {
+                // Component doesn't exist or has been destroyed
                 return null;
             }
+
         }
     }
     
