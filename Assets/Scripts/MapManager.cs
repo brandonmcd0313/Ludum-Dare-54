@@ -106,11 +106,11 @@ public class MapManager : MonoBehaviour
         
         
         //recolor the two children of the object
-        Color one = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
-        Color two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+        Color one = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
+        Color two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
         while (one == two)
         {
-            two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+            two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
         }
         leftHouse.transform.GetChild(0).GetComponent<SpriteRenderer>().color =one;
         leftHouse.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
@@ -120,11 +120,11 @@ public class MapManager : MonoBehaviour
         rightHouse.transform.position = new Vector3(rightOfRoadx + (rightHouse.GetComponent<Collider2D>().bounds.size.x / 2), _playerTruck.transform.position.y, 0);
         print(rightHouse.GetComponent<Collider2D>().bounds.size.x / 2);
         //recolor the two children of the object
-        one = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
-        two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+        one = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
+        two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
         while (one == two)
         {
-            two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+            two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
         }
         rightHouse.transform.GetChild(0).GetComponent<SpriteRenderer>().color = one;
         rightHouse.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
@@ -182,11 +182,11 @@ public class MapManager : MonoBehaviour
                 newHouseObject.transform.localScale = new Vector3(-1, 1, 1);
             }
             //recolor the two children of the object
-            Color one = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
-            Color two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+            Color one = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
+            Color two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
             while (one == two)
             {
-                two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+                two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
             }
             newHouseObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = one;
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
@@ -240,11 +240,11 @@ public class MapManager : MonoBehaviour
               newHouseObject.transform.localScale =  new Vector3(-1, 1, 1);
             }
             //recolor the two children of the object
-            Color one = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
-            Color two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+            Color one = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
+            Color two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
             while (one == two)
             {
-                two = _acceptableColors[Random.Range(0, _housePrefabs.Length)];
+                two = _acceptableColors[Random.Range(0, _acceptableColors.Length)];
             }
             newHouseObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = one;
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;

@@ -16,14 +16,8 @@ public class DrivingCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_truckObject.GetComponent<TruckDrivingBehaviour>().IsMovingUpwards)
-        {
+       
             this.transform.position = new Vector3(_truckObject.transform.position.x, _truckObject.transform.position.y + _cameraYOffset, this.transform.position.z);
-        }
-        else
-        {
-            this.transform.position = new Vector3(_truckObject.transform.position.x, _truckObject.transform.position.y - _cameraYOffset, this.transform.position.z);
-        }
        
     }
 }
