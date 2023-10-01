@@ -42,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Road
+    uniqueID: 1069937173
+    locked: 0
   - name: Truck
     uniqueID: 4122883145
     locked: 0
