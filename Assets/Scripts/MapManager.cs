@@ -151,7 +151,7 @@ public class MapManager : MonoBehaviour
             GameObject newHouseObject = Instantiate(newHousePrefab);
 
             position = new Vector3(referencePosition.x, 
-                (referencePosition.y - referenceHouse.GetComponent<Collider2D>().bounds.size.y / 2) - (newHouseObject.GetComponent<Collider2D>().bounds.size.y / 2),
+                (referencePosition.y - referenceHouse.GetComponent<Collider2D>().bounds.size.y / 2) - (newHouseObject.GetComponent<Collider2D>().bounds.size.y / 2) ,
                   referencePosition.z);
             newHouseObject.transform.position = position;
             //check if this house is hititng any other houses
@@ -192,7 +192,7 @@ public class MapManager : MonoBehaviour
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
 
             referencePosition = newHouseObject.transform.position;
-
+            referenceHouse = newHouseObject;
             //spawn a bin
         }
     }
@@ -250,7 +250,7 @@ public class MapManager : MonoBehaviour
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
 
             referencePosition = newHouseObject.transform.position;
-
+            referenceHouse = newHouseObject;
             //spawn a bin
         }
     }
