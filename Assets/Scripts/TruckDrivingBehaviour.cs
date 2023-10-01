@@ -26,6 +26,11 @@ public class TruckDrivingBehaviour : MonoBehaviour
         //clamp the car speed
         //_rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _speed);
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            //start aproaching zero for velocity
+            _rb.velocity = Vector2.Lerp(_rb.velocity, Vector2.zero, 2f * Time.fixedDeltaTime);
+        }
         //if the car is moving upwards, set the bool to true
         if (_rb.velocity.y > 0)
         {
