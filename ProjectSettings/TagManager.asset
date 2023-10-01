@@ -8,6 +8,8 @@ TagManager:
   - Bin
   - Trash
   - Stink
+  - Road
+  - House
   layers:
   - Default
   - TransparentFX
@@ -42,14 +44,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: House
+    uniqueID: 340311679
+    locked: 0
   - name: Road
     uniqueID: 1069937173
     locked: 0
+  - name: House Yard
+    uniqueID: 2679628213
+    locked: 0
   - name: Truck
     uniqueID: 4122883145
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0
   - name: Bins
     uniqueID: 3725938667
