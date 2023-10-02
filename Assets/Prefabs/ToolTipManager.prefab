@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tips:
   - Click Left Mouse Button to see next tip.
+  - 
   - Hold WASD to start driving! Space to break.
   - The highlighted bins are the ones closest to you and clickable.
-  - Time is limited so make sure you use it wisely!
+  - Time is limited so make sure you collect the trash quickly!
   _toolTipPrefab: {fileID: 3456444198406566061, guid: f413040294cda7549a0a61b918285a60, type: 3}
+  _toolTipSpawnPos: {x: -1.645087, y: 1.957671, z: 0}
