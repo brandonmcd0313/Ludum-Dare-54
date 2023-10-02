@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] Vector2 _binPosition;
 }
