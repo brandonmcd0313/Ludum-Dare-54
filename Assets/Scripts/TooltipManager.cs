@@ -32,6 +32,7 @@ public class TooltipManager : MonoBehaviour
                 }
                 break;
             case "BinToTruck":
+                print("bin to truck");
                 if (!_ranTipsBinToTruck)
                 {
                     StartCoroutine(RunTips());
@@ -49,11 +50,15 @@ public class TooltipManager : MonoBehaviour
 
     IEnumerator RunTips()
     {
+        GameObject truck = null;
         //find truck and disable move
-        GameObject truck = GameObject.FindGameObjectWithTag("Truck");
-        if(truck != null)
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main")
         {
-            truck.GetComponent<TruckDrivingBehaviour>().canMove = false;
+            truck = GameObject.FindGameObjectWithTag("Truck");
+            if (truck != null)
+            {
+                truck.GetComponent<TruckDrivingBehaviour>().canMove = false;
+            }
         }
         toolTip = Instantiate(_toolTipPrefab);
         //hook up text

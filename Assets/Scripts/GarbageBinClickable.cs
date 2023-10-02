@@ -8,11 +8,10 @@ public class GarbageBinClickable : MonoBehaviour
 {
     [SerializeField] GameObject _truck;
     [SerializeField] Sprite _visited;
-    Sprite _glow;
+    [SerializeField] Sprite _glow;
     // Start is called before the first frame update
     void Start()
     {
-        _glow = GetComponent<SpriteRenderer>().sprite;
         //set to visited srite
         GetComponent<SpriteRenderer>().sprite = _visited;
         _truck = GameObject.FindGameObjectWithTag("Truck");

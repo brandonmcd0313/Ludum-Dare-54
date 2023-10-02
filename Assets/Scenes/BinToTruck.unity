@@ -980,6 +980,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _toolTipSpawnPos.x
+      value: -2.14045
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _toolTipSpawnPos.y
+      value: 1.16401
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
       propertyPath: _tips.Array.data[0]
       value: Hold and drag the trash from the bins to the garbage truck to drop them.
       objectReference: {fileID: 0}
