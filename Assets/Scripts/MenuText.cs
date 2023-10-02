@@ -16,7 +16,7 @@ public class MenuText : MonoBehaviour
     {
         PlayButton.GetComponent<Button>();
         PlayButton.SetActive(true);
-        guitext.text = "Welcome To Garbage Sim The Best\t\t\t\t   Game Ever";
+        guitext.text = "Welcome To Garbage Sim\n\n  Hit The Button To Play";
         
     }
 
