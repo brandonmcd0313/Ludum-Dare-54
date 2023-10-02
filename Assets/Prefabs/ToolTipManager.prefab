@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177725b020414e749b99d9f5d4a531e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tips: []
+  _tips:
+  - Click Left Mouse Button to see next tip.
+  - Hold WASD to start driving! Space to break.
+  - The highlighted bins are the ones closest to you and clickable.
+  - Time is limited so make sure you use it wisely!
   _toolTipPrefab: {fileID: 3456444198406566061, guid: f413040294cda7549a0a61b918285a60, type: 3}
