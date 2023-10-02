@@ -136,5 +136,7 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         }
         return closestObject;
     }
+    
+   
 }
 

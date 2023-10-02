@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BinToTruck.unity
     guid: 7e1c1a28e19d87244a39d0361cb9c5d4
+  - enabled: 1
+    path: Assets/Scenes/EndOfDay.unity
+    guid: 4577068bf6a793946ba6ec7a61bf1573
   m_configObjects: {}

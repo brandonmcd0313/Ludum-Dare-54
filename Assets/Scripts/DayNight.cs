@@ -8,31 +8,34 @@ public class DayNight : MonoBehaviour
 {
     public GameObject overlay;
     static float SecondsPerDay = 120;
-    static float SecondsPassed;
+    static float SecondsPassed = 0;
     public static bool runningDay = false;
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-        SecondsPassed = 0;
-    }
+  
     // Start is called before the first frame update
     void Start()
     {
         //get overlay from the scene
         overlay = GameObject.Find("Overlay");
         overlay.SetActive(true);
+        //if this not the menu scene run the day
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            runningDay = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!runningDay)
+        print("ran update on daynight");
+        if (!runningDay)
         {
             return;
         }
         
         if (SecondsPassed < SecondsPerDay)
         {
+            print((int)SecondsPassed);
             int i = (int)(115 - 494 * (SecondsPassed / SecondsPerDay) + (571 * Mathf.Pow(SecondsPassed / SecondsPerDay, 2)));
             SecondsPassed += Time.deltaTime;
             GameObject.Find("Overlay").GetComponent<Image>().color =
@@ -41,6 +44,7 @@ public class DayNight : MonoBehaviour
         }
         else
         {
+            print("end of day");
             SecondsPassed = 0;
             SceneManager.LoadScene("EndOfDay");
         }

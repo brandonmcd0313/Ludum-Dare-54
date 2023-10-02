@@ -62,6 +62,11 @@ public class TrashLocationManager : MonoBehaviour
         _trashPieces.Clear();
         _trashLocations.Clear();
     }
+
+    public static int GetTrashCount()
+    {
+        return _trashPieces.Count;
+    }
 }
 
 

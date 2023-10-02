@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VersionControl.Git;
 using UnityEngine;
 
 public class HouseInfoStorage : MonoBehaviour
@@ -123,6 +124,20 @@ public class HouseInfoStorage : MonoBehaviour
         return closestObject;
     }
 
+    public static int GetNumberOfVisitedHouses()
+    {
+        int numberOfVisitedHouses = 0;
+        for (int i = 0; i < HasHouseBeenVisited.Count; i++)
+        {
+            if (HasHouseBeenVisited[i])
+            {
+                numberOfVisitedHouses++;
+            }
+        }
+        return numberOfVisitedHouses;
+    }
 }
+
+
 
 

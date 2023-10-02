@@ -16,6 +16,7 @@ public class GarbageBinClickable : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = _visited;
         }
+        InvokeRepeating("ResetCollider", 0f, 0.1f);
     }
 
     private void OnMouseDown()
@@ -25,7 +26,7 @@ public class GarbageBinClickable : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = _visited;
             return;
         }
-        
+
         //a^2 + b^2 = c^2
         float absoluteVelocitySquared = Mathf.Pow(_truck.GetComponent<Rigidbody2D>().velocity.x, 2) + Mathf.Pow(_truck.GetComponent<Rigidbody2D>().velocity.y, 2);
         float absoluteVelocity = Mathf.Pow(absoluteVelocitySquared, 0.5f);
@@ -68,5 +69,11 @@ public class GarbageBinClickable : MonoBehaviour
             }
         }
         return closestObject;
+    }
+
+    void ResetCollider()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

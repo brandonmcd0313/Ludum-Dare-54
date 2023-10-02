@@ -30,7 +30,7 @@ public class GarbageBinBehaviour : MonoBehaviour
     void SpawnTrash()
     {
         //pick a number between 1 and 2 to determine the amount of trash to spawn
-        int trashAmount = Random.Range(1, 3);
+        int trashAmount = 1;
 
         //spawn that amount of trash and stink
         for (int i = 0; i < trashAmount; i++)
