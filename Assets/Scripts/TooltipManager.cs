@@ -7,12 +7,14 @@ public class TooltipManager : MonoBehaviour
 {
     [SerializeField] string[] _tips;
     [SerializeField] GameObject _toolTipPrefab;
+    [SerializeField] Vector3 _toolTipSpawnPos;
     static bool _ranTipsMain, _ranTipsBinToTruck, _ranTipsEndOfDay;
     GameObject toolTip;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         //switch case for scene
         switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
         {
@@ -21,6 +23,8 @@ public class TooltipManager : MonoBehaviour
                 {
                     StartCoroutine(RunTips());
                     _ranTipsMain = true;
+                    //set to spawn pos
+                    toolTip.transform.position = _toolTipSpawnPos;
                 }
                 break;
             case "BinToTruck":
@@ -28,6 +32,7 @@ public class TooltipManager : MonoBehaviour
                 {
                     StartCoroutine(RunTips());
                     _ranTipsBinToTruck = true;
+                    toolTip.transform.position = _toolTipSpawnPos;
                 }
                 break;
             case "EndOfDay":
@@ -35,6 +40,7 @@ public class TooltipManager : MonoBehaviour
                 {
                     StartCoroutine(RunTips());
                     _ranTipsEndOfDay = true;
+                    toolTip.transform.position = _toolTipSpawnPos;
                 }
                 break;
         }

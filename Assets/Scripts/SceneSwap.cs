@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneSwap : MonoBehaviour
 {
     bool _swappedScene = false;
+    [SerializeField] AudioClip _leaveSceneSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +27,10 @@ public class SceneSwap : MonoBehaviour
         //log all trash
         GameObject.Find("TrashLocationManager").GetComponent<TrashLocationManager>().LogTrashLocations();
         //play sound
-
+        GetComponent<AudioSource>().PlayOneShot(_leaveSceneSound);
+        
         //wait one sec
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         //load main scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
     }

@@ -8,11 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class EndOfDayManager : MonoBehaviour
 {
-    int howmuchtrashwegot;
     public TMP_Text eodresults, binscollectedtoday, binscollectedtotal, totalpiecesoftrashcollectedtoday, trashcollectedtotal;
     static int totalTrash;
     static int totalBins;
     static int dayCount = 0;
+    
     public void Start()
     {
         DayNight.runningDay = false;
@@ -36,8 +36,8 @@ public class EndOfDayManager : MonoBehaviour
             eodresults.text = "End Of Day Two Results";
         }
 
-            binscollectedtoday.text = "Bins Collected Today: " + binsToday;
-        binscollectedtotal.text = "Bins Collected Total: " + totalBins;
+            binscollectedtoday.text = "Bins Visited Today: " + binsToday;
+        binscollectedtotal.text = "Bins Visited Total: " + totalBins;
         totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + trashToday;
         trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
         if (dayCount == 3)

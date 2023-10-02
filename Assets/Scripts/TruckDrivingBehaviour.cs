@@ -9,7 +9,7 @@ public class TruckDrivingBehaviour : MonoBehaviour
     [SerializeField] float _rotationSpeed;
     public bool IsMovingUpwards;
     Rigidbody2D _rb;
-    
+    float timeTurning = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +24,14 @@ public class TruckDrivingBehaviour : MonoBehaviour
         _rb.AddForce(transform.up * _speed * -Input.GetAxis("Vertical") * Time.fixedDeltaTime);
         //rotation
         _rb.rotation += (-Input.GetAxis("Horizontal") * _rotationSpeed * Time.fixedDeltaTime);
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            timeTurning += Time.fixedDeltaTime;
+        }
+        else
+        {
+            timeTurning = 0;
+        }
         //clamp the car speed
         //_rb.velocity = Vector2.ClampMagnitude(_rb.velocity, _speed);
 
