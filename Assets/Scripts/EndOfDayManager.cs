@@ -27,7 +27,11 @@ public class EndOfDayManager : MonoBehaviour
         TrashLocationManager.Clear();
         //text
         eodresults.text = "End Of Day "+ dayCount + " Results" ;
-        binscollectedtoday.text = "Bins Collected Today: " + binsToday;
+        if(dayCount == 3)
+        {
+            eodresults.text = "End Of Game Results";
+        }
+        binscollectedtoday.text = "Share Your Results in the comments!";
         binscollectedtotal.text = "Bins Collected Total: " + trashToday;
         totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + totalBins;
         trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
