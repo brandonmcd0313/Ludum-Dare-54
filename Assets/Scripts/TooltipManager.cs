@@ -76,7 +76,8 @@ public class TooltipManager : MonoBehaviour
             text.text = tip;
             //wait for mouse button 0 to be pressed
            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-            
+            yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
+
         }
         Destroy(toolTip);
         if (truck != null)
