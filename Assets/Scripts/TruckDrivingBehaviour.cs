@@ -7,9 +7,12 @@ public class TruckDrivingBehaviour : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _rotationSpeed;
+    [SerializeField] AudioClip skirtSound;
     public bool IsMovingUpwards;
+    public bool canMove = true;
     Rigidbody2D _rb;
     float timeTurning = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,12 @@ public class TruckDrivingBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         GetClosestBin().GetComponent<GarbageBinClickable>().SetToGlow();
+        if (!canMove)
+        {
+            return;
+        }
         //back and forth movement
         _rb.AddForce(transform.up * _speed * -Input.GetAxis("Vertical") * Time.fixedDeltaTime);
         //rotation
@@ -49,7 +57,13 @@ public class TruckDrivingBehaviour : MonoBehaviour
         {
             IsMovingUpwards = false;
         }
-        
+
+        //if you held the turn button for more than 0.5 second skirt sound plays
+        if (timeTurning > 0.5f)
+        {
+            GetComponent<AudioSource>().PlayOneShot(skirtSound);
+            timeTurning = 0;
+        }
     }
 
     public GameObject GetClosestBin()

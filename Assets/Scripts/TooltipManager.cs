@@ -26,6 +26,10 @@ public class TooltipManager : MonoBehaviour
                     //set to spawn pos
                     toolTip.transform.position = _toolTipSpawnPos;
                 }
+                else
+                {
+                    toolTip.transform.position = new Vector3(100,100,0);
+                }
                 break;
             case "BinToTruck":
                 if (!_ranTipsBinToTruck)
@@ -33,6 +37,10 @@ public class TooltipManager : MonoBehaviour
                     StartCoroutine(RunTips());
                     _ranTipsBinToTruck = true;
                     toolTip.transform.position = _toolTipSpawnPos;
+                }
+                else
+                {
+                    toolTip.transform.position = new Vector3(100, 100, 0);
                 }
                 break;
             case "EndOfDay":
@@ -42,6 +50,10 @@ public class TooltipManager : MonoBehaviour
                     _ranTipsEndOfDay = true;
                     toolTip.transform.position = _toolTipSpawnPos;
                 }
+                else
+                {
+                    toolTip.transform.position = new Vector3(100, 100, 0);
+                }
                 break;
         }
 
@@ -49,6 +61,12 @@ public class TooltipManager : MonoBehaviour
 
     IEnumerator RunTips()
     {
+        //find truck and disable move
+        GameObject truck = GameObject.FindGameObjectWithTag("Truck");
+        if(truck != null)
+        {
+            truck.GetComponent<TruckDrivingBehaviour>().canMove = false;
+        }
         toolTip = Instantiate(_toolTipPrefab);
         //hook up text
         TextMeshPro text = toolTip.transform.GetChild(1).GetComponent<TextMeshPro>();
@@ -59,6 +77,11 @@ public class TooltipManager : MonoBehaviour
             //wait for mouse button 0 to be pressed
            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
             
+        }
+        Destroy(toolTip);
+        if (truck != null)
+        {
+            truck.GetComponent<TruckDrivingBehaviour>().canMove = true;
         }
     }
 
