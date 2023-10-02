@@ -46,9 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tips:
   - Click Left Mouse Button to see next tip.
-  - 
   - Hold WASD to start driving! Space to break.
   - The highlighted bins are the ones closest to you and clickable.
+  - There is a day and night cycle, your shift ends at night.
   - Time is limited so make sure you collect the trash quickly!
+  - Hold and drag the trash from the bins to the garbage truck to drop them.
+  - Hold 'R' to rotate the trash so you can fit all the trash you find.
+  - Press SPACEBAR to exit this scene and move onto the next bin.
   _toolTipPrefab: {fileID: 3456444198406566061, guid: f413040294cda7549a0a61b918285a60, type: 3}
   _toolTipSpawnPos: {x: -1.645087, y: 1.957671, z: 0}
