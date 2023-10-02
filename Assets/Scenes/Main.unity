@@ -156,7 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _rotationSpeed: 30
+  skirtSound: {fileID: 0}
   IsMovingUpwards: 0
+  canMove: 1
 --- !u!50 &156553846
 Rigidbody2D:
   serializedVersion: 4
