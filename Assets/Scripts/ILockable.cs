@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface ILockable
 {
+    public bool IsInBin { get; }
     public bool IsLocked { get; }
     public Vector3 Position { get; }
 

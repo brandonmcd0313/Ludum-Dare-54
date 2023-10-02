@@ -10,6 +10,10 @@ public class TrashBehaviour : MonoBehaviour, ILockable
     bool isInBin;
     bool isLocked;
 
+    void Start()
+    {
+        isInBin = true;
+    }
     public Vector3 Position
     {
         get
@@ -26,6 +30,14 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         }
     }
 
+    public bool IsInBin
+    {
+        get
+        {
+            return isInBin;
+        }
+    }
+
     public void OnPickup()
     {
         if (isInBin)
@@ -36,12 +48,26 @@ public class TrashBehaviour : MonoBehaviour, ILockable
 
         }
         isInBin = false;
+        
     }
 
     public void OnLockAttempt()
     {
+        print("OnLockAttempt");
         //see if coverring any objects
-        print("attempted to lock");
+
+        //check if any colliders with the tag "Trash" are inside this objects collider
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Trash"))
+            {
+                
+                //if so, no lock
+                OnLockFailedAttempt();
+                return;
+            }
+        }
 
         OnLock();
 
@@ -49,15 +75,18 @@ public class TrashBehaviour : MonoBehaviour, ILockable
 
     public void OnLockFailedAttempt()
     {
+        print("failed lock");
         isLocked = false;
-        //make sprite white
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //gravity works on this object now
+        GetComponent<Rigidbody2D>().gravityScale = 1f;
     }
     public void OnLock()
     {
+        print("lock");
         isLocked = true;
-        //make sprite red
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
+
+        //store the position
     }
 
     public Collider2D Collider

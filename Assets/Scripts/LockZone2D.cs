@@ -17,6 +17,8 @@ public class LockZone2D : MonoBehaviour
         edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
         edgeCollider.points = GetComponent<PolygonCollider2D>().points;
         edgeCollider.edgeRadius = edgeRadius;
+        //make edge colldier a trigger
+        edgeCollider.isTrigger = true;
         fitZone = GetComponent<PolygonCollider2D>();
 
         // Find all lockable objects in the scene
@@ -55,7 +57,11 @@ public class LockZone2D : MonoBehaviour
             }
             else
             {
-                _lockables[i].OnLockFailedAttempt();
+                if(!_lockables[i].IsInBin)
+                {
+
+                    _lockables[i].OnLockFailedAttempt();
+                }
             }
         }
     }
