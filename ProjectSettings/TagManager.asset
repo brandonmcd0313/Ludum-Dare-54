@@ -62,9 +62,9 @@ TagManager:
   - name: Bins
     uniqueID: 3725938667
     locked: 0
-  - name: Trash Items
-    uniqueID: 234634423
-    locked: 0
   - name: Stink Sprites
     uniqueID: 2771275105
+    locked: 0
+  - name: Trash Items
+    uniqueID: 234634423
     locked: 0

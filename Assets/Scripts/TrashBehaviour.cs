@@ -13,6 +13,7 @@ public class TrashBehaviour : MonoBehaviour, ILockable
     void Start()
     {
         isInBin = true;
+     
     }
     public Vector3 Position
     {
@@ -68,7 +69,6 @@ public class TrashBehaviour : MonoBehaviour, ILockable
                 return;
             }
         }
-
         OnLock();
 
     }
@@ -79,14 +79,21 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         isLocked = false;
         //gravity works on this object now
         GetComponent<Rigidbody2D>().gravityScale = 1f;
+        //enable ability to collide
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //stop rotating
+        GetComponent<Rigidbody2D>().angularVelocity = 0f;
     }
     public void OnLock()
     {
         print("lock");
         isLocked = true;
         GetComponent<Rigidbody2D>().gravityScale = 0f;
-
-        //store the position
+        //disable rigidbodys ability to collide
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().angularVelocity = 0f;
     }
 
     public Collider2D Collider

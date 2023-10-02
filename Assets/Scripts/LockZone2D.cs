@@ -7,7 +7,7 @@ public class LockZone2D : MonoBehaviour
 {
     List<ILockable> _lockables = new List<ILockable>();
 
-    public float edgeRadius = 0.1f; // Set your desired edge radius
+    public float edgeRadius = 0.025f; // Set your desired edge radius
     private EdgeCollider2D edgeCollider;
     private PolygonCollider2D fitZone;
 
@@ -17,6 +17,8 @@ public class LockZone2D : MonoBehaviour
         edgeCollider = gameObject.AddComponent<EdgeCollider2D>();
         edgeCollider.points = GetComponent<PolygonCollider2D>().points;
         edgeCollider.edgeRadius = edgeRadius;
+        //set edge radius to offset pos x = -1 becuase broken
+        edgeCollider.offset = new Vector2(-1, 0);
         //make edge colldier a trigger
         edgeCollider.isTrigger = true;
         fitZone = GetComponent<PolygonCollider2D>();
