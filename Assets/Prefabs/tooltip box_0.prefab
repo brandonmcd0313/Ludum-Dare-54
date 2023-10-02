@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7233829436171372371}
   - component: {fileID: 6211869966692439484}
+  - component: {fileID: 5910325919290746054}
+  - component: {fileID: 2455888849880661021}
   m_Layer: 0
   m_Name: tooltip box_1
   m_TagString: Untagged
@@ -84,6 +86,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &5910325919290746054
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407443308495621846}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.142858, y: 4.571429}
+    newSize: {x: 9.142858, y: 4.571429}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -3.0533729, y: 1.1704583}
+      - {x: -3.110044, y: 1.3241723}
+      - {x: -3.3248549, y: 1.333581}
+      - {x: -3.4987416, y: 1.0990989}
+      - {x: -3.6245904, y: 1.2061961}
+      - {x: -3.6941133, y: 1.3204364}
+      - {x: -3.9046307, y: 1.3268278}
+      - {x: -3.9025478, y: 1.0346377}
+      - {x: -3.6407967, y: 0.94943523}
+      - {x: -3.929894, y: 0.72189176}
+      - {x: -3.8829784, y: 0.52790976}
+      - {x: -3.7294598, y: 0.49538207}
+      - {x: -3.5041308, y: 0.79899406}
+      - {x: -3.3535047, y: 0.5519184}
+      - {x: -3.1081352, y: 0.54431236}
+      - {x: -3.1385584, y: 0.69841194}
+      - {x: -3.30258, y: 0.93253887}
+--- !u!114 &2455888849880661021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407443308495621846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018d7b25a10361343a6be82f4af6d1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3456444198406566061
 GameObject:
   m_ObjectHideFlags: 0
