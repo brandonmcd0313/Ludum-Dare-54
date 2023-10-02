@@ -26,9 +26,17 @@ public class EndOfDayManager : MonoBehaviour
         HouseInfoStorage.ClearHouseList();
         TrashLocationManager.Clear();
         //text
-        eodresults.text = "End Of Day "+ dayCount + " Results" ;
-        
-        binscollectedtoday.text = "Bins Collected Today: " + binsToday;
+        if(dayCount == 1)
+        {
+
+            eodresults.text = "End Of Day One Results";
+        }
+        else if (dayCount == 2)
+        {
+            eodresults.text = "End Of Day Two Results";
+        }
+
+            binscollectedtoday.text = "Bins Collected Today: " + binsToday;
         binscollectedtotal.text = "Bins Collected Total: " + totalBins;
         totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + trashToday;
         trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
