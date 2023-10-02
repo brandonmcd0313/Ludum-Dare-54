@@ -28,7 +28,6 @@ public class SceneSwap : MonoBehaviour
         GameObject.Find("TrashLocationManager").GetComponent<TrashLocationManager>().LogTrashLocations();
         //play sound
         GetComponent<AudioSource>().PlayOneShot(_leaveSceneSound);
-        
         //wait one sec
         yield return new WaitForSeconds(2);
         //load main scene

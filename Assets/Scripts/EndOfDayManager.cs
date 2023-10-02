@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VersionControl.Git;
 using UnityEngine.SceneManagement;
 
 public class EndOfDayManager : MonoBehaviour
@@ -11,7 +10,7 @@ public class EndOfDayManager : MonoBehaviour
     public TMP_Text eodresults, binscollectedtoday, binscollectedtotal, totalpiecesoftrashcollectedtoday, trashcollectedtotal;
     static int totalTrash;
     static int totalBins;
-    static int dayCount = 0;
+   public static int dayCount = 0;
     
     public void Start()
     {

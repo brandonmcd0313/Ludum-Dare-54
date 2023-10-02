@@ -14,6 +14,7 @@ public class MenuText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EndOfDayManager.dayCount = 0;
         PlayButton.GetComponent<Button>();
         PlayButton.SetActive(true);
         guitext.text = "Welcome To Garbage Sim\n\n  Hit The Button To Play";
