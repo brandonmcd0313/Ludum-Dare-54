@@ -43,36 +43,52 @@ public class LockZone2D : MonoBehaviour
 
     void CheckForObjectsToLock()
     {
-        // Check all lockable objects to see if they are in the lock zone
-        for (int i = 0; i < _lockables.Count; i++)
+        _lockables.Clear();
+        // Find all lockable objects in the scene
+        MonoBehaviour[] allScripts = FindObjectsOfType<MonoBehaviour>();
+        for (int i = 0; i < allScripts.Length; i++)
         {
-            if (_lockables[i].Collider == null)
+            if (allScripts[i] is ILockable)
+                _lockables.Add(allScripts[i] as ILockable);
+        }
+        
+        for (int i = _lockables.Count - 1; i >= 0; i--)
+        {
+            ILockable lockable = _lockables[i];
+            GameObject trash = lockable.gameObject;
+            // Check if the lockable object is null or its collider is null (indicating it has been destroyed)
+            if (trash == null || trash.GetComponent<Collider2D>() == null)
             {
                 _lockables.RemoveAt(i);
-                i--;
                 continue;
             }
 
-            if (IsFullyContainedInLockZone(_lockables[i].Collider))
+            if (IsFullyContainedInLockZone(trash.GetComponent<Collider2D>()))
             {
-                _lockables[i].OnLockAttempt();
+                lockable.OnLockAttempt();
             }
             else
             {
-                if(!_lockables[i].IsInBin)
+                if (!lockable.IsInBin)
                 {
-
-                    _lockables[i].OnLockFailedAttempt();
+                    lockable.OnLockFailedAttempt();
                 }
             }
         }
     }
 
+
     bool IsFullyContainedInLockZone(Collider2D colliderToCheck)
     {
         // Get the bounds of the fitZone
+        fitZone = GameObject.FindGameObjectWithTag("Truck").GetComponent<PolygonCollider2D>();
         Bounds fitZoneBounds = fitZone.bounds;
-
+        // Create an EdgeCollider2D and set its points to match the polygonRegion
+        edgeCollider = GameObject.FindGameObjectWithTag("Truck").AddComponent<EdgeCollider2D>();
+        edgeCollider.points = GameObject.FindGameObjectWithTag("Truck").GetComponent<PolygonCollider2D>().points;
+        edgeCollider.edgeRadius = edgeRadius;
+        //set edge radius to offset pos x = -1 becuase broken
+        edgeCollider.offset = new Vector2(-1, 0);
         // Get the local corners of the colliderToCheck
         Vector2[] colliderCorners = new Vector2[4];
         colliderCorners[0] = colliderToCheck.bounds.min;

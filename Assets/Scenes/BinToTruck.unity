@@ -152,6 +152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c86f97f221dc394fb8e75e2d34b95be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trashPrefabObjects:
+  - {fileID: 7158921802645837509, guid: f444c067b3680674db7e954cfea41c30, type: 3}
+  - {fileID: 9156731026520878673, guid: b660fb39d275c9840868449d3ecba477, type: 3}
+  - {fileID: 441238730406480871, guid: 75af951e2f694bc4aa4537d637241db8, type: 3}
+  - {fileID: 5547984950283022695, guid: dafc81bedfcde4f4dba951b41ef5d260, type: 3}
+  - {fileID: 2475382761209867026, guid: e75a4fd3b7098814694d03ac99b2c600, type: 3}
+  - {fileID: 6925771387688544725, guid: e4b9c5893e9b75448ac9c6377f2b8241, type: 3}
+  - {fileID: 9177400783259865309, guid: 69710e844fbb90b4d83c4edfadc97f6b, type: 3}
+  - {fileID: 549617407142647722, guid: e79396f106f24e04dba2f9b37cab1ad4, type: 3}
 --- !u!4 &221742496
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +478,7 @@ GameObject:
   - component: {fileID: 1371686007}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Truck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,8 +617,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371686002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96, y: -0.6, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
+  m_LocalPosition: {x: 1.97, y: -0.97, z: 0}
+  m_LocalScale: {x: 1.33042, y: 1.3367101, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

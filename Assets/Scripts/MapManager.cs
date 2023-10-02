@@ -38,7 +38,7 @@ public class MapManager : MonoBehaviour
         Instantiate(_roadPrefab,
             new Vector3(closestRoad.transform.position.x, _playerTruck.transform.position.y, 0), Quaternion.identity);
 
-        if (HouseInfoStorage.Houses.Count == 0)
+        if (HouseInfoStorage.HousesA.Count == 0)
         {
             CreateFirstHouses();
         }
@@ -133,7 +133,7 @@ public class MapManager : MonoBehaviour
         }
         leftHouse.transform.GetChild(0).GetComponent<SpriteRenderer>().color =one;
         leftHouse.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
-
+        HouseInfoStorage.AddHouse(leftHouse, leftHousePrefab);
         
         GameObject rightHouse = Instantiate(rightHousePrefab);
         rightHouse.transform.position = new Vector3(rightOfRoadx + (rightHouse.GetComponent<Collider2D>().bounds.size.x / 2), _playerTruck.transform.position.y, 0);
@@ -150,7 +150,7 @@ public class MapManager : MonoBehaviour
 
         //flip the object on x axis
         rightHouse.transform.localScale = new Vector3(-1, 1, 1);
-
+        HouseInfoStorage.AddHouse(rightHouse, rightHousePrefab);
         SpawnHousesAbove(rightHouse);
         SpawnHousesAbove(leftHouse);
         SpawnHousesBelow(leftHouse);
@@ -187,7 +187,6 @@ public class MapManager : MonoBehaviour
                 // If there are other colliders besides the current house's collider
                 if (colliders.Length > 1)
                 {
-                    
                     //destory this house and try agian
                     referencePosition = newHouseObject.transform.position;
                     Destroy(newHouseObject);
@@ -209,7 +208,7 @@ public class MapManager : MonoBehaviour
             }
             newHouseObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = one;
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
-
+            HouseInfoStorage.AddHouse(newHouseObject, newHousePrefab);
             referencePosition = newHouseObject.transform.position;
             referenceHouse = newHouseObject;
             //spawn a bin
@@ -267,7 +266,7 @@ public class MapManager : MonoBehaviour
             }
             newHouseObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = one;
             newHouseObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = two;
-
+            HouseInfoStorage.AddHouse(newHouseObject, newHousePrefab);
             referencePosition = newHouseObject.transform.position;
             referenceHouse = newHouseObject;
             //spawn a bin

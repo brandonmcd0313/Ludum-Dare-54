@@ -10,11 +10,12 @@ public class Background : MonoBehaviour
         if(DirectionManager.isToTheRight)
         {
             //localScale normal
+
+            //rotate y by 180
+            transform.RotateAround(transform.position, transform.up, 180f);
         }
         else
         {
-            //rotate y by 180
-            transform.RotateAround(transform.position, transform.up, 180f);
         }
     }
     

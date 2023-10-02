@@ -22,8 +22,10 @@ public class GarbageBinClickable : MonoBehaviour
     {
         if (transform.parent.GetComponent<House>().HasBeenVisited)
         {
+            GetComponent<SpriteRenderer>().sprite = _visited;
             return;
         }
+        
         //a^2 + b^2 = c^2
         float absoluteVelocitySquared = Mathf.Pow(_truck.GetComponent<Rigidbody2D>().velocity.x, 2) + Mathf.Pow(_truck.GetComponent<Rigidbody2D>().velocity.y, 2);
         float absoluteVelocity = Mathf.Pow(absoluteVelocitySquared, 0.5f);
@@ -42,6 +44,9 @@ public class GarbageBinClickable : MonoBehaviour
             }
             //tell the parent house it has been visited
             transform.parent.GetComponent<House>().HasBeenVisited = true;
+            HouseInfoStorage.SetAsVisitedHouseAt(transform.parent.transform.position);
+            //set player pos in house info
+            HouseInfoStorage.PlayerPosition = transform.parent.transform.position;
             //load the bin to truck scene
             SceneManager.LoadScene("BinToTruck");
         }

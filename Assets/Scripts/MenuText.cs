@@ -17,6 +17,8 @@ public class MenuText : MonoBehaviour
         PlayButton.GetComponent<Button>();
         PlayButton.SetActive(true);
         guitext.text = "Welcome To Garbage Sim\n\n  Hit The Button To Play";
+        HouseInfoStorage.ClearHouseList();
+        TrashLocationManager.Clear();
         
     }
 

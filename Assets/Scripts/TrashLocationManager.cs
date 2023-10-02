@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class TrashLocationManager : MonoBehaviour
 {
-    public static List<GameObject> _trashPieces = new List<GameObject>();
+    public static List<Sprite> _trashPieces = new List<Sprite>();
     public static List<Vector3> _trashLocations = new List<Vector3>(); //in world space
-
+    public static List<GameObject> _trashPrefabs = new List<GameObject>();
+    [SerializeField] GameObject[] _trashPrefabObjects;
     private void Start()
     {
         //instaniate all trash pieces and put them at correct spot
         int i = 0;
-        foreach (GameObject trash in _trashPieces)
+        foreach (Sprite trash in _trashPieces)
         {
-            GameObject trashObj = Instantiate(trash);
+            GameObject trashObj = Instantiate(_trashPrefabs[i]);
+            trashObj.GetComponent<SpriteRenderer>().sprite = trash;
             trashObj.transform.position = _trashLocations[i];
             //lock object
             trashObj.GetComponent<ILockable>().OnLock();
@@ -24,6 +26,7 @@ public class TrashLocationManager : MonoBehaviour
     }
     public void LogTrashLocations()
     {
+        Clear();
         List<ILockable> lockables = new List<ILockable>();
         // Find all lockable objects in the scene
         MonoBehaviour[] allScripts = FindObjectsOfType<MonoBehaviour>();
@@ -38,12 +41,28 @@ public class TrashLocationManager : MonoBehaviour
         {
             if (lockable.IsLocked)
             {
-                _trashPieces.Add(lockable.gameObject);
+
+                //find the trash peice prefab object with the same sprite
+                foreach (GameObject trashPrefabObject in _trashPrefabObjects)
+                {
+                    if (trashPrefabObject.GetComponent<SpriteRenderer>().sprite == lockable.gameObject.GetComponent<SpriteRenderer>().sprite)
+                    {
+                        _trashPrefabs.Add(trashPrefabObject);
+                    }
+                }
+                _trashPieces.Add(lockable.gameObject.GetComponent<SpriteRenderer>().sprite);
                 _trashLocations.Add(lockable.Position);
             }
 
         }
     }
+    
+    public static void Clear()
+    {
+        _trashPieces.Clear();
+        _trashLocations.Clear();
+    }
 }
+
 
 

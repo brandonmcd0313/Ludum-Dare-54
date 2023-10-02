@@ -106,6 +106,7 @@ public class TrashBehaviour : MonoBehaviour, ILockable
             // Check if the component exists before returning it
             if (TryGetComponent(out Collider2D collider))
             {
+                
                 return collider;
             }
             else

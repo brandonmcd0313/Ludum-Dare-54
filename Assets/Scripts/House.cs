@@ -15,4 +15,10 @@ public class House : MonoBehaviour
         bin.transform.parent = transform;
         bin.transform.localPosition = _binPosition;
     }
+    
+    public Vector2 GetBinPosition()
+    {
+        return _binPosition;
+    }
+
 }
