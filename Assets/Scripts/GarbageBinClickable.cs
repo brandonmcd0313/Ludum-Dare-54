@@ -92,7 +92,11 @@ public class GarbageBinClickable : MonoBehaviour
     
     public void SetToGlow()
     {
-        GetComponent<SpriteRenderer>().sprite = _glow;
+        if(!transform.parent.GetComponent<House>().HasBeenVisited)
+        {
+
+            GetComponent<SpriteRenderer>().sprite = _glow;
+        }
     
     }
 }
