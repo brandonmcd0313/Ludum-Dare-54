@@ -9,6 +9,7 @@ public class DayNight : MonoBehaviour
     public GameObject overlay;
     static float SecondsPerDay = 120;
     static float SecondsPassed;
+    public static bool runningDay = false;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -25,14 +26,24 @@ public class DayNight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //115+-494x+571x^2
-        int i = (int)(115 - 494 * (SecondsPassed / SecondsPerDay) + (571 * Mathf.Pow(SecondsPassed / SecondsPerDay, 2)));
-        print(i);
-        SecondsPassed += Time.deltaTime;
-        overlay.GetComponent<Image>().color =
-                new Color(0, 0, 0, i / 255f);
+        if(!runningDay)
+        {
+            return;
+        }
         
-        
+        if (SecondsPassed < SecondsPerDay)
+        {
+            int i = (int)(115 - 494 * (SecondsPassed / SecondsPerDay) + (571 * Mathf.Pow(SecondsPassed / SecondsPerDay, 2)));
+            SecondsPassed += Time.deltaTime;
+            GameObject.Find("Overlay").GetComponent<Image>().color =
+                    new Color(0, 0, 0, i / 255f);
+
+        }
+        else
+        {
+            SecondsPassed = 0;
+            SceneManager.LoadScene("EndOfDay");
+        }
     }
     
 }

@@ -27,6 +27,9 @@ public class MenuText : MonoBehaviour
     }
     public void PlayGameButton()
     {
+
+        //start the day
+        DayNight.runningDay = true;
         SceneManager.LoadScene("Main");
     }
 

@@ -93,7 +93,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3563234898986136102, guid: 61b8f2735c92c4a46bb0a6e859e45bc6, type: 3}
       propertyPath: m_Name
-      value: House2A
+      value: House2A Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3563234898986136120, guid: 61b8f2735c92c4a46bb0a6e859e45bc6, type: 3}
       propertyPath: m_RootOrder
@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8388319442930200551, guid: 61b8f2735c92c4a46bb0a6e859e45bc6, type: 3}
+      propertyPath: _binPrefab
+      value: 
+      objectReference: {fileID: 7129939669586721863, guid: da3a4fff554d64d4588dc62cde4afd1f, type: 3}
     - target: {fileID: 8388319442930200551, guid: 61b8f2735c92c4a46bb0a6e859e45bc6, type: 3}
       propertyPath: _binPosition.x
       value: 4.28

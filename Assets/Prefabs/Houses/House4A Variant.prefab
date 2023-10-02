@@ -92,6 +92,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 667368948755516566, guid: 54029d3aa38b87d44bf247cf70da46a5, type: 3}
+      propertyPath: _binPrefab
+      value: 
+      objectReference: {fileID: 7129939669586721863, guid: da3a4fff554d64d4588dc62cde4afd1f, type: 3}
+    - target: {fileID: 667368948755516566, guid: 54029d3aa38b87d44bf247cf70da46a5, type: 3}
       propertyPath: _binPosition.x
       value: 4.362
       objectReference: {fileID: 0}
@@ -145,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075376910463393749, guid: 54029d3aa38b87d44bf247cf70da46a5, type: 3}
       propertyPath: m_Name
-      value: House4A
+      value: House4A Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54029d3aa38b87d44bf247cf70da46a5, type: 3}

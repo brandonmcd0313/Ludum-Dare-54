@@ -15,5 +15,7 @@ public interface ILockable
 
     public void OnLockFailedAttempt();
 
+    public GameObject gameObject { get; }
+
 
 }

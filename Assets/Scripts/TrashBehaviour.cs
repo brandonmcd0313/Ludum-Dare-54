@@ -9,7 +9,11 @@ public class TrashBehaviour : MonoBehaviour, ILockable
 {
     bool isInBin;
     bool isLocked;
-
+    float rotationSpeed = 60;
+   
+    void Update()
+    {
+    }
     void Start()
     {
         isInBin = true;
@@ -61,9 +65,8 @@ public class TrashBehaviour : MonoBehaviour, ILockable
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject.CompareTag("Trash"))
+            if (collider.gameObject.CompareTag("Trash") && collider.gameObject != gameObject)
             {
-                
                 //if so, no lock
                 OnLockFailedAttempt();
                 return;

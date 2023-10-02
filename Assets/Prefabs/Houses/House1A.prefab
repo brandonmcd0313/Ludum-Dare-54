@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _binPosition: {x: 4.17, y: -0.15}
+  _binPrefab: {fileID: 7129939669586721863, guid: da3a4fff554d64d4588dc62cde4afd1f, type: 3}
 --- !u!61 &-13575516112590631
 BoxCollider2D:
   m_ObjectHideFlags: 0

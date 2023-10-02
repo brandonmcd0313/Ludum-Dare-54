@@ -32,7 +32,26 @@ public class MapManager : MonoBehaviour
     {
         _truckDrivingBehaviour = _playerTruck.GetComponent<TruckDrivingBehaviour>();
         _refrenceYValue = 0;
-        //assign road with the first road
+
+        //make a road where the player starts
+        GameObject closestRoad = FindClosestObjectWithTag("Road");
+        Instantiate(_roadPrefab,
+            new Vector3(closestRoad.transform.position.x, _playerTruck.transform.position.y, 0), Quaternion.identity);
+
+        if (HouseInfoStorage.Houses.Count == 0)
+        {
+            CreateFirstHouses();
+        }
+    }
+
+    public void ResetAllHouses()
+    {
+        //destroy all objects with tag house
+        GameObject[] houses = GameObject.FindGameObjectsWithTag("House");
+        foreach (GameObject house in houses)
+        {
+            Destroy(house);
+        }
 
         CreateFirstHouses();
     }

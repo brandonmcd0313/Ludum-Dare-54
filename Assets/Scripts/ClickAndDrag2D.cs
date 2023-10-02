@@ -14,7 +14,7 @@ public class ClickAndDrag2D : MonoBehaviour
     //offset from object to mouse position, determined on pickup
     private Vector3 _offset = new Vector3();
     bool _isFollowingMouse = false;
-
+    float _rotationSpeed = 60;
     // Use this for initialization
     void Start()
     {
@@ -39,6 +39,12 @@ public class ClickAndDrag2D : MonoBehaviour
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             worldPosition.z = transform.position.z; //keep this object at the same z value
             transform.position = worldPosition + _offset;
+
+            //if user is pressing R rotate this object
+            if (Input.GetKey(KeyCode.R))
+            {
+                transform.Rotate(0f, 0f, Time.deltaTime * _rotationSpeed);
+            }
         }
 
         //if mouse goes off-screen, drop piece and snap to on-screen position
