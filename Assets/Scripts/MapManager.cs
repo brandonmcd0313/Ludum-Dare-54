@@ -24,17 +24,25 @@ public class MapManager : MonoBehaviour
     
 
     [SerializeField] GameObject _binPrefab;
+    float roadX;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject closestRoad = FindClosestObjectWithTag("Road");
+        roadX = closestRoad.transform.position.x;
+        GameObject newRoad = Instantiate(_roadPrefab,
+          new Vector3(roadX, _playerTruck.transform.position.y, 0), Quaternion.identity);
+        newRoad.SetActive(false);
+        newRoad.SetActive(true);
+
         _truckDrivingBehaviour = _playerTruck.GetComponent<TruckDrivingBehaviour>();
         _refrenceYValue = 0;
 
         //make a road where the player starts
-        GameObject closestRoad = FindClosestObjectWithTag("Road");
+       
         Instantiate(_roadPrefab,
-            new Vector3(closestRoad.transform.position.x, _playerTruck.transform.position.y, 0), Quaternion.identity);
+            new Vector3(roadX, _playerTruck.transform.position.y, 0), Quaternion.identity);
 
         if (HouseInfoStorage.HousesA.Count == 0)
         {
@@ -78,8 +86,8 @@ public class MapManager : MonoBehaviour
         {
             //find the top of the last road spawned
             float lastRoadTop = closestRoad.transform.position.y + (closestRoad.GetComponent<Collider2D>().bounds.size.y / 2);
-
-            newSpawnPosition = new Vector3(closestRoad.transform.position.x,
+            
+            newSpawnPosition = new Vector3(roadX,
                 lastRoadTop + (_roadPrefab.GetComponent<Collider2D>().bounds.size.y / 2), closestRoad.transform.position.z);
 
         }
@@ -88,7 +96,7 @@ public class MapManager : MonoBehaviour
             //find the bottom of the last road spawned
             float lastRoadBottom = closestRoad.transform.position.y - (closestRoad.GetComponent<Collider2D>().bounds.size.y / 2);
 
-            newSpawnPosition = new Vector3(closestRoad.transform.position.x,
+            newSpawnPosition = new Vector3(roadX,
                 lastRoadBottom - (_roadPrefab.GetComponent<Collider2D>().bounds.size.y / 2), closestRoad.transform.position.z);
 
         }
@@ -96,6 +104,11 @@ public class MapManager : MonoBehaviour
         GameObject[] currentRoads = GameObject.FindGameObjectsWithTag("Road");
         foreach (GameObject road in currentRoads)
         {
+            //set to roadX
+            if (road.transform.position.x != roadX)
+            {
+                road.transform.position = new Vector3(roadX, road.transform.position.y, road.transform.position.z);
+            }
             if (road.transform.position.y == newSpawnPosition.y)
             {
                 //DO NOT SPAWN NEW ROAD OR HOUSES

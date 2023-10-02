@@ -36,7 +36,8 @@ public class DayNight : MonoBehaviour
         if (SecondsPassed < SecondsPerDay)
         {
             print((int)SecondsPassed);
-            int i = (int)(115 - 494 * (SecondsPassed / SecondsPerDay) + (571 * Mathf.Pow(SecondsPassed / SecondsPerDay, 2)));
+            //76.7 - 360x + 470x^2
+            int i = (int)(76.7f - 360 * (SecondsPassed / SecondsPerDay) + (470 * Mathf.Pow(SecondsPassed / SecondsPerDay, 2)));
             SecondsPassed += Time.deltaTime;
             GameObject.Find("Overlay").GetComponent<Image>().color =
                     new Color(0, 0, 0, i / 255f);
@@ -46,6 +47,7 @@ public class DayNight : MonoBehaviour
         {
             print("end of day");
             SecondsPassed = 0;
+            runningDay = false;
             SceneManager.LoadScene("EndOfDay");
         }
     }

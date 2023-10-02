@@ -34,11 +34,11 @@ public class EndOfDayManager : MonoBehaviour
         {
             eodresults.text = "End Of Day Two Results";
         }
-
-            binscollectedtoday.text = "Bins Visited Today: " + binsToday;
+        binscollectedtoday.text = "Bins Visited Today: " + binsToday;
         binscollectedtotal.text = "Bins Visited Total: " + totalBins;
         totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + trashToday;
         trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
+        
         if (dayCount >= 4)
         {
             eodresults.text = "End Of Game Results";
@@ -57,7 +57,7 @@ public class EndOfDayManager : MonoBehaviour
             DayNight.runningDay = true;
             SceneManager.LoadScene("Main");
         }
-        else
+        else if(Input.GetKeyDown(KeyCode.Space))
         {
             //reload scene
             SceneManager.LoadScene("EndOfDay");
