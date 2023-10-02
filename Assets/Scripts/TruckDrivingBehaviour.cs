@@ -19,6 +19,7 @@ public class TruckDrivingBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        GetClosestBin().GetComponent<GarbageBinClickable>().SetToGlow();
         //back and forth movement
         _rb.AddForce(transform.up * _speed * -Input.GetAxis("Vertical") * Time.fixedDeltaTime);
         //rotation
@@ -40,5 +41,24 @@ public class TruckDrivingBehaviour : MonoBehaviour
         {
             IsMovingUpwards = false;
         }
+        
+    }
+
+    public GameObject GetClosestBin()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Bin");
+        //find the closest one
+        GameObject closestObject = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (GameObject obj in objects)
+        {
+            float distance = Vector3.Distance(transform.position, obj.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestObject = obj;
+            }
+        }
+        return closestObject;
     }
 }

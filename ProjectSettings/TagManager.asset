@@ -68,3 +68,6 @@ TagManager:
   - name: Trash Items
     uniqueID: 234634423
     locked: 0
+  - name: UI
+    uniqueID: 2855438883
+    locked: 0

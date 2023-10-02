@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1270608645518937196}
   m_Layer: 0
   m_Name: Garbage Bin Icon
-  m_TagString: Untagged
+  m_TagString: Bin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _truck: {fileID: 0}
+  _visited: {fileID: 21300000, guid: fef52074a39a9ed4989f6ecf1a1e4c3b, type: 3}

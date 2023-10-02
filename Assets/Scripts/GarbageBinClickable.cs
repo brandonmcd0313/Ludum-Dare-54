@@ -8,9 +8,13 @@ public class GarbageBinClickable : MonoBehaviour
 {
     [SerializeField] GameObject _truck;
     [SerializeField] Sprite _visited;
+    Sprite _glow;
     // Start is called before the first frame update
     void Start()
     {
+        _glow = GetComponent<SpriteRenderer>().sprite;
+        //set to visited srite
+        GetComponent<SpriteRenderer>().sprite = _visited;
         _truck = GameObject.FindGameObjectWithTag("Truck");
         if (transform.parent.GetComponent<House>().HasBeenVisited)
         {
@@ -24,6 +28,12 @@ public class GarbageBinClickable : MonoBehaviour
         if (transform.parent.GetComponent<House>().HasBeenVisited)
         {
             GetComponent<SpriteRenderer>().sprite = _visited;
+            return;
+        }
+
+        //if this is not the closest bin
+        if (gameObject != _truck.GetComponent<TruckDrivingBehaviour>().GetClosestBin())
+        {
             return;
         }
 
@@ -73,7 +83,16 @@ public class GarbageBinClickable : MonoBehaviour
 
     void ResetCollider()
     {
+        //set to visited srite
+        GetComponent<SpriteRenderer>().sprite = _visited;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
+    }
+    
+    
+    public void SetToGlow()
+    {
+        GetComponent<SpriteRenderer>().sprite = _glow;
+    
     }
 }
