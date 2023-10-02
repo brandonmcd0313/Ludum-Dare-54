@@ -975,6 +975,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToolTipManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[0]
+      value: Hold and drag the trash from the bins to the garbage truck to drop them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[1]
+      value: Hold 'R' to rotate the trash so you can fit all the trash you find.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[2]
+      value: Press SPACEBAR to exit this scene and move onto the next bin.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
 --- !u!1001 &1879692145

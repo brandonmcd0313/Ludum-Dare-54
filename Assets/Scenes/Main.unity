@@ -2290,5 +2290,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToolTipManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104283355530823099, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
+      propertyPath: _tips.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d046d4a3e3dfdc44b928e468162221e, type: 3}
