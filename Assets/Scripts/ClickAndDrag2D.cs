@@ -57,8 +57,9 @@ public class ClickAndDrag2D : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
+                print(gameObject.name + " was clicked");
         if (IsMovable)
         {
             //set offset, follow mouse
@@ -67,13 +68,20 @@ public class ClickAndDrag2D : MonoBehaviour
             _isFollowingMouse = true;
             if (_pickupSound && GetComponent<AudioSource>())
             { GetComponent<AudioSource>().PlayOneShot(_pickupSound); }
-        }
 
-       
+            if (gameObject.GetComponent<TrashBehaviour>() != null)
+            {
+                gameObject.GetComponent<TrashBehaviour>().OnPickup();
+            }
+        }
     }
 
     private void OnMouseUp()
     {
+        if(!_isFollowingMouse)
+        {
+            return;
+        }
         //stop following mouse
         _isFollowingMouse = false;
         if (_dropSound & GetComponent<AudioSource>())

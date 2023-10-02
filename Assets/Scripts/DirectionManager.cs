@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DirectionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static bool isToTheRight = true;
 
-    // Update is called once per frame
-    void Update()
+
+    void setFacingDirection(bool isFacingRight)
     {
-        
+        isToTheRight = isFacingRight;
+    
     }
 }
