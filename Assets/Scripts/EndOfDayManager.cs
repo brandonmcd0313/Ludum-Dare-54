@@ -40,20 +40,28 @@ public class EndOfDayManager : MonoBehaviour
         binscollectedtotal.text = "Bins Visited Total: " + totalBins;
         totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + trashToday;
         trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
-        if (dayCount == 3)
+        if (dayCount >= 4)
         {
             eodresults.text = "End Of Game Results";
             totalpiecesoftrashcollectedtoday.text = "";
+            binscollectedtoday.text = "";
+
+
         }
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && dayCount < 3)
+        if (Input.GetKeyDown(KeyCode.Space) && dayCount < 3)
         {
             //reload main scene
             DayNight.runningDay = true;
             SceneManager.LoadScene("Main");
+        }
+        else
+        {
+            //reload scene
+            SceneManager.LoadScene("EndOfDay");
         }
     }
     
