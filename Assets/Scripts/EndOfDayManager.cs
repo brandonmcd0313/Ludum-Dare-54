@@ -27,14 +27,16 @@ public class EndOfDayManager : MonoBehaviour
         TrashLocationManager.Clear();
         //text
         eodresults.text = "End Of Day "+ dayCount + " Results" ;
-        if(dayCount == 3)
+        
+        binscollectedtoday.text = "Bins Collected Today: " + binsToday;
+        binscollectedtotal.text = "Bins Collected Total: " + totalBins;
+        totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + trashToday;
+        trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
+        if (dayCount == 3)
         {
             eodresults.text = "End Of Game Results";
+            totalpiecesoftrashcollectedtoday.text = "";
         }
-        binscollectedtoday.text = "Share Your Results in the comments!";
-        binscollectedtotal.text = "Bins Collected Total: " + trashToday;
-        totalpiecesoftrashcollectedtoday.text = "Trash Collected Today: " + totalBins;
-        trashcollectedtotal.text = "Trash Collected Total: " + totalTrash;
     }
 
     private void Update()
